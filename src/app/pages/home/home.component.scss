@@ -15,18 +15,9 @@ $main-color: #0079bf;
 .container{
     display: flex;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
-
-    .card-transparent{
-        color: transparent;
-        background-color: transparent;
-        height: 5px;
-        font-size: 1px;
-        padding: 0;
-        margin: 0;
-    }
 
     mat-card{
+        font-family: 'Roboto', sans-serif;
         height:fit-content;
         background-color: #ebecf0;
         width: calc(33.3% - 10px);
@@ -108,16 +99,16 @@ $main-color: #0079bf;
             border-color: $input-focus-border;
             opacity: 1;
         }
-    }
 
-    .save-button{
-        font-weight: 350;
-        color: white;
-        background-color: $main-color;
-    }
+        .save-button{
+            font-weight: 350;
+            color: white;
+            background-color: $main-color;
+        }
 
-    .close-button{
-        margin-top: 6%;
-        background-color: transparent;
+        .close-button{
+            margin-top: 6%;
+            background-color: transparent;
+        }
     }
 }
