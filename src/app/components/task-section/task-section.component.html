@@ -20,7 +20,7 @@
     </button>
     <ng-container *ngIf="textAreaVisible">
         <textarea 
-        (keydown)="addBucket('input', $event, valArea)"
+        (keydown)="updateData('input', $event, valArea)"
         class="input-settings"
         rows="3"
         matInput
@@ -30,7 +30,7 @@
         #areaBox
       ></textarea>
       <button
-        (click)="addBucket('button', '', valArea)"
+        (click)="updateData('button', '', valArea)"
         class="save-button"
         mat-flat-button
       >

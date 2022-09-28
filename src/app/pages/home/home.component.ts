@@ -6,7 +6,6 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import * as Bucket from '@spica-devkit/bucket';
-import { IAddToBucketOutput } from 'src/app/components/task-section/task-section.component';
 
 Bucket.initialize({
   publicUrl: 'https://intership-test-1ae96.hq.spicaengine.com/api',
@@ -59,25 +58,11 @@ export class HomeComponent implements OnInit {
   }
 
   addBucket(
-    event: IAddToBucketOutput,
-    statusId: number
+    obj: ICard
   ) {
-
-    let statusObj: any = {
-      0: 'for_development',
-      1: 'for_working',
-      2: 'for_completed',
-    };
-
-    if (event.type === 'button' || event.event.key === 'Enter') {
-      const obj = {
-        author: "developer",
-        text: event.value,
-        status: statusObj[statusId],
-      };
-
+      this.data.push(obj);
+      this.data = JSON.parse(JSON.stringify(this.data))
       this.dataInsert('633306e7fdfd11002c20c80d', obj);
-    }
   }
 
   async updateBucketData(dataId: any, globalData: any, statusName: string) {

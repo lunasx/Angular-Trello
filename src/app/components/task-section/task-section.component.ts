@@ -1,12 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ICard } from 'src/Interface/interface';
 
-export interface IAddToBucketOutput {
-  type: string;
-  event?: any;
-  value: string
-}
-
 @Component({
   selector: 'app-task-section',
   templateUrl: './task-section.component.html',
@@ -21,21 +15,19 @@ export class TaskSectionComponent implements OnInit {
   @Input() sectionType: string = '';
   @Input() title?: string;
   @Input() data?: ICard[] = [];
-  @Output() addToBucketChange = new EventEmitter<IAddToBucketOutput>();
+  @Output() addToBucketChange = new EventEmitter<ICard>();
   @Output() dropChange = new EventEmitter<any>();
   @ViewChild('areaBox') areaBox: ElementRef | any;
 
   ngOnInit(): void {
-    this.prepareData()
   }
 
   getValue(val: string) {
     this.valArea = val;
   }
 
-  addBucket(type:string, event:any, value:string){
-    this.addToBucketChange.emit({type, event, value});
-    this.updateData(type, event, value);
+  addBucket(obj: any){
+    this.addToBucketChange.emit(obj);
   }
 
   drop(event: any){
@@ -48,6 +40,13 @@ export class TaskSectionComponent implements OnInit {
 
   prepareData(){
     this.data = this.data?.filter(el => {return el.status == this.sectionType})
+  }
+
+  clearInput(){
+    this.areaBox.nativeElement.value = this.areaBox.nativeElement.value.replace(
+      this.areaBox.nativeElement.value,
+      ''
+    );
   }
 
   updateData(type:string, event:any, value:string)
@@ -70,16 +69,15 @@ export class TaskSectionComponent implements OnInit {
       const obj = {
         author: "developer",
         text: value,
-        status: type,
+        status: this.sectionType,
       };
+      this.addBucket(obj)
 
-      this.data?.push(obj);
-
-      this.areaBox.nativeElement.value = this.areaBox.nativeElement.value.replace(
-        this.areaBox.nativeElement.value,
-        ''
-      );
+      this.clearInput();
     }
   }
 
+  ngOnChanges(){
+    this.prepareData()
+  }
 }

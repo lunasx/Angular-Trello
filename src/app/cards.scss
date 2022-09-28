@@ -1,17 +1,14 @@
-$card-color: rgba(28, 28, 29, 0.753);
-$card-color-hover: rgba(255, 255, 255, 0.527);
-
 :host{
     .global-card{
         background-color: white;
-        color: $card-color;
+        color: var(--card-color);
         margin-bottom: 10px;
         text-align: left;
         padding-top: 5px;
         padding-bottom: 5px;
         transition: 0.2s;
-        :hover{
-            background-color: $card-color-hover;
-        }
+    }
+    .global-card:hover{
+        background-color: var(--card-color-hover);
     }
 } 

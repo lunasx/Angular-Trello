@@ -4,21 +4,21 @@
       sectionType="for_development"
       title="For Development"
       [data]="data"
-      (addToBucketChange)="addBucket($event, 0)"
+      (addToBucketChange)="addBucket($event)"
       (dropChange)="drop($event)"
     ></app-task-section>
     <app-task-section
       sectionType="for_working"
       title="In Progress"
       [data]="data"
-      (addToBucketChange)="addBucket($event, 1)"
+      (addToBucketChange)="addBucket($event)"
       (dropChange)="drop($event)"
     ></app-task-section>
     <app-task-section
       sectionType="for_completed"
       title="Completed"
       [data]="data"
-      (addToBucketChange)="addBucket($event, 2)"
+      (addToBucketChange)="addBucket($event)"
       (dropChange)="drop($event)"
     ></app-task-section>
   </div>
