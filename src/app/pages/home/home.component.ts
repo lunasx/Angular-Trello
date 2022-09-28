@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ICard } from 'src/Interface/interface';
 import {
   CdkDragDrop,
@@ -6,6 +6,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import * as Bucket from '@spica-devkit/bucket';
+import { IAddToBucketOutput } from 'src/app/components/task-section/task-section.component';
 
 Bucket.initialize({
   publicUrl: 'https://intership-test-1ae96.hq.spicaengine.com/api',
@@ -19,44 +20,29 @@ Bucket.initialize({
 })
 export class HomeComponent implements OnInit {
   data: ICard[] = [];
-  data_development?: ICard[] = [];
-  data_working?: ICard[] = [];
-  data_completed?: ICard[] = [];
   get_data?: ICard[] = [];
   set_data?: ICard[] = [];
   textAreaVisible: boolean[] = [false, false, false];
   textAreaVisible2: boolean[] = [true, true, true];
   valArea1 = '';
   bucketId = '633306e7fdfd11002c20c80d';
-  @ViewChild('areaBox') areaBox: ElementRef | any;
+  isLoading: boolean = true;
+
   constructor() {}
 
   async ngOnInit() {
     this.bucketPromise()
       .then((datas: any) => {
         this.data = datas;
-        console.log(this.data);
-        this.updateData();
       })
       .catch((error) => {
         console.log(JSON.stringify(error));
-      });
+      })
+      .finally(() => {this.isLoading = false})
   }
 
   bucketPromise() {
     return Bucket.data.getAll(this.bucketId);
-  }
-
-  async updateData() {
-    this.data_development = this.data?.filter((p) =>
-      p.status.includes('for_development')
-    );
-    this.data_working = this.data?.filter((p) =>
-      p.status.includes('for_working')
-    );
-    this.data_completed = this.data?.filter((p) =>
-      p.status.includes('for_completed')
-    );
   }
 
   getValue(val: string) {
@@ -73,25 +59,9 @@ export class HomeComponent implements OnInit {
   }
 
   addBucket(
-    id: number,
-    type: string,
-    event: any,
-    author_id: string,
-    name: string
+    event: IAddToBucketOutput,
+    statusId: number
   ) {
-    let firstRun: Boolean = true;
-
-    if (firstRun == false) {
-      if (!name.trim()) {
-        this.areaBox.nativeElement.value = this.areaBox.nativeElement.value.replace(
-          this.areaBox.nativeElement.value,
-          ''
-        );
-        return;
-      }
-    } else {
-      firstRun = false;
-    }
 
     let statusObj: any = {
       0: 'for_development',
@@ -99,23 +69,15 @@ export class HomeComponent implements OnInit {
       2: 'for_completed',
     };
 
-    if (type === 'button' || event.key === 'Enter') {
+    if (event.type === 'button' || event.event.key === 'Enter') {
       const obj = {
-        author: author_id,
-        text: name,
-        status: statusObj[id],
+        author: "developer",
+        text: event.value,
+        status: statusObj[statusId],
       };
 
-      this.data?.push(obj);
       this.dataInsert('633306e7fdfd11002c20c80d', obj);
-
-      this.areaBox.nativeElement.value = this.areaBox.nativeElement.value.replace(
-        this.areaBox.nativeElement.value,
-        ''
-      );
     }
-
-    this.updateData();
   }
 
   async updateBucketData(dataId: any, globalData: any, statusName: string) {

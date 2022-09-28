@@ -54,6 +54,8 @@ import { CardWorkingComponent } from './components/card-working/card-working.com
 import { CardCompletedComponent } from './components/card-completed/card-completed.component';
 // Pages
 import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { TaskSectionComponent } from './components/task-section/task-section.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { HomeComponent } from './pages/home/home.component';
     CardComponent,
     CardWorkingComponent,
     CardCompletedComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent,
+    TaskSectionComponent
   ],
   imports: [
     BrowserModule,

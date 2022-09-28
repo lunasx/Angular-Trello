@@ -1,0 +1,48 @@
+<mat-card>
+    <h2 class="left-header" dir="auto">
+      {{title}}
+      <mat-icon class="header-icon-settings" fontIcon="more_horiz"></mat-icon>
+    </h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="data"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-card
+        *ngFor="let item of data"
+        [data]="item"
+        cdkDrag
+      ></app-card>
+      <div cdkDrag>&nbsp;</div>
+    </div>
+    <button *ngIf="!textAreaVisible" (click)="areaVisible()" class="button-settings" mat-flat-button>
+      <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
+    </button>
+    <ng-container *ngIf="textAreaVisible">
+        <textarea 
+        (keydown)="addBucket('input', $event, valArea)"
+        class="input-settings"
+        rows="3"
+        matInput
+        placeholder="Bu kart için başlık girin..."
+        for="textarea1"
+        (keyup)="getValue(areaBox.value)"
+        #areaBox
+      ></textarea>
+      <button
+        (click)="addBucket('button', '', valArea)"
+        class="save-button"
+        mat-flat-button
+      >
+        Kart Ekle
+      </button>
+      <button
+        (click)="areaVisible()"
+        class="close-button"
+        mat-flat-button
+      >
+        <mat-icon class="font-settings" fontIcon="close"></mat-icon>
+      </button>
+    </ng-container>
+
+  </mat-card>
