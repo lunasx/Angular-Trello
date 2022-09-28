@@ -10,8 +10,8 @@ $card-color-hover: rgba(255, 255, 255, 0.527);
         padding-top: 5px;
         padding-bottom: 5px;
         transition: 0.2s;
-    }
-    .global-card:hover{
-        background-color: $card-color-hover;
+        :hover{
+            background-color: $card-color-hover;
+        }
     }
 } 

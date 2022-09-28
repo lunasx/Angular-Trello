@@ -1,18 +1,21 @@
 <mat-card class="register">
+    <header>
+        LOGIN
+    </header>
     <form>
-        <mat-form-field id="username" class="form-row form-margin">
+        <mat-form-field appearance="fill" id="username" class="form-row form-margin">
           <mat-label>username</mat-label>
           <input matInput placeholder="enter username">
           <mat-icon matSuffix>account_circle</mat-icon>
         </mat-form-field>
 
-        <mat-form-field id="pass" class="form-row">
+        <mat-form-field appearance="fill" id="pass" class="form-row">
           <mat-label>password</mat-label>
           <input type="password" matInput placeholder="enter password">
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
 
-        <mat-form-field id="mail" class="form-width">
+        <mat-form-field appearance="fill" id="mail" class="form-width">
             <mat-label>email address</mat-label>
             <input type="email" matInput placeholder="enter email address">
             <mat-icon matSuffix>email</mat-icon>
@@ -20,7 +23,7 @@
     </form>
     <div class="buttons">
         <button mat-stroked-button color="primary" class="register">Register</button>
-        <button mat-mini-fab color="primary">
+        <button mat-icon-button class="login-border" color="primary">
             <mat-icon class="login-circle">login</mat-icon>
         </button>
     </div>

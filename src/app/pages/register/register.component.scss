@@ -1,42 +1,55 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto&family=Ubuntu&display=swap');
 
-.register {
+:host {
+  .register {
     height: 50%;
     margin-top: 10%;
     margin-left: calc(35%);
     margin-right: calc(35%);
-    background-color: $button-background-light;
-  
+    background-color: var(--button-background-light);
+
+    header{
+        text-align: center;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 20px;
+        color: var(--main-color);
+        margin-bottom: 20px;
+        margin-left: calc(35%);
+        margin-right: calc(35%);
+        padding-bottom: 10px;
+        box-shadow: 0 3px 2px -2px var(--main-color);
+    }
+
     form {
-      margin: 0px 5% 0px 5%;
-  
+      margin: 0px 10% 0px 10%;
+
       mat-label {
-        color: $font-color;
+        color: var(--font-color);
       }
-  
+
       mat-icon {
-        color: $font-color;
+        color: var(--font-color);
       }
-  
+
       .form-margin {
         margin-right: 5%;
       }
-  
+
       .form-row {
-        border-color: $input-border;
+        border-color: var(--input-border);
         float: left;
         width: 47.1%;
       }
-  
+
       .form-row:hover {
-        border-color: $input-border;
+        border-color: var(--input-border);
       }
-  
+
       .form-width {
         width: 100%;
       }
     }
-  
+
     .buttons {
       .register {
         width: 50%;
@@ -44,9 +57,13 @@
         padding: 1px;
         margin: 10px 10px 0px 18%;
       }
-      .login-circle {
-        font-size: 20px;
+      
+      .login-border{
+        border: 1px solid rgba(0,0,0,.15);
+        .login-circle {
+            font-size: 20px;
+        }
       }
     }
   }
-  
+}
