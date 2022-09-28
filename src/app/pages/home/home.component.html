@@ -1,0 +1,162 @@
+<div cdkDropListGroup class="container">
+  <mat-card>
+    <h2 class="left-header" dir="auto">
+      Yapılacaklar
+      <mat-icon class="header-icon-settings" fontIcon="more_horiz"></mat-icon>
+    </h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="data_development"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-card
+        *ngFor="let item of data_development"
+        [data]="item"
+        cdkDrag
+      ></app-card>
+      <div cdkDrag>&nbsp;</div>
+    </div>
+    <button
+      (click)="textAreaVisible(0)"
+      class="button-settings"
+      mat-flat-button
+    >
+      <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
+    </button>
+    <textarea
+      *ngIf="textArea_visible[0]"
+      (keydown)="addBucket(0, 'input', $event, 'development', valArea1)"
+      class="input-settings"
+      rows="3"
+      matInput
+      placeholder="Bu kart için başlık girin..."
+      for="textarea1"
+      (keyup)="getValue(bxbx.value)"
+      #bxbx
+    ></textarea>
+    <button
+      *ngIf="textArea_visible[0]"
+      (click)="addBucket(0, 'button', '', 'development', valArea1)"
+      class="save-button"
+      mat-flat-button
+    >
+      Kart Ekle
+    </button>
+    <button
+      *ngIf="textArea_visible[0]"
+      (click)="textAreaVisible(0)"
+      class="close-button"
+      mat-flat-button
+    >
+      <mat-icon class="font-settings" fontIcon="close"></mat-icon>
+    </button>
+  </mat-card>
+
+  <mat-card>
+    <h2 class="left-header" dir="auto">
+      Yapılıyor
+      <mat-icon class="header-icon-settings" fontIcon="more_horiz"></mat-icon>
+    </h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="data_working"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-card-working
+        *ngFor="let item of data_working"
+        [data_working]="item"
+        cdkDrag
+      ></app-card-working>
+      <div cdkDrag>&nbsp;</div>
+    </div>
+    <button
+      *ngIf="textArea_visible2[1]"
+      (click)="textAreaVisible(1)"
+      class="button-settings"
+      mat-flat-button
+    >
+      <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
+    </button>
+    <textarea
+      *ngIf="textArea_visible[1]"
+      (keydown)="addBucket(1, 'input', $event, 'working', valArea1)"
+      class="input-settings"
+      rows="3"
+      matInput
+      placeholder="Bu kart için başlık girin..."
+      for="textarea1"
+      (keyup)="getValue(bxbx.value)"
+      #bxbx
+    ></textarea>
+    <button
+      *ngIf="textArea_visible[1]"
+      (click)="addBucket(1, 'button', '', 'working', valArea1)"
+      class="save-button"
+      mat-flat-button
+    >
+      Kart Ekle
+    </button>
+    <button
+      *ngIf="textArea_visible[1]"
+      (click)="textAreaVisible(1)"
+      class="close-button"
+      mat-flat-button
+    >
+      <mat-icon class="font-settings" fontIcon="close"></mat-icon>
+    </button>
+  </mat-card>
+
+  <mat-card>
+    <h2 class="left-header" dir="auto">
+      Tamamlandı
+      <mat-icon class="header-icon-settings" fontIcon="more_horiz"></mat-icon>
+    </h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="data_completed"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-card-completed
+        *ngFor="let item of data_completed"
+        [data_completed]="item"
+        cdkDrag
+      ></app-card-completed>
+      <div cdkDrag>&nbsp;</div>
+    </div>
+    <button
+      *ngIf="textArea_visible2[2]"
+      (click)="textAreaVisible(2)"
+      class="button-settings"
+      mat-flat-button
+    >
+      <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
+    </button>
+    <textarea
+      *ngIf="textArea_visible[2]"
+      (keydown)="addBucket(2, 'input', $event, 'completed', valArea1)"
+      class="input-settings"
+      rows="3"
+      matInput
+      placeholder="Bu kart için başlık girin..."
+      for="textarea1"
+      (keyup)="getValue(bxbx.value)"
+      #bxbx
+    ></textarea>
+    <button
+      *ngIf="textArea_visible[2]"
+      (click)="addBucket(2, 'button', '', 'completed', valArea1)"
+      class="save-button"
+      mat-flat-button
+    >
+      Kart Ekle
+    </button>
+    <button
+      *ngIf="textArea_visible[2]"
+      (click)="textAreaVisible(2)"
+      class="close-button"
+      mat-flat-button
+    >
+      <mat-icon class="font-settings" fontIcon="close"></mat-icon>
+    </button>
+  </mat-card>
+</div>

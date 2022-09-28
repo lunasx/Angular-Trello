@@ -1,0 +1,14 @@
+:host{
+    .global-card{
+        background-color: #FFF;
+        color: rgba(28, 28, 29, 0.753);
+        margin-bottom: 10px;
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: 0.2s;
+    }
+    .global-card:hover{
+        background-color: rgba(255, 255, 255, 0.527);
+    }
+} 
