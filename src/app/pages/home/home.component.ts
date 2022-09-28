@@ -25,10 +25,10 @@ export class HomeComponent implements OnInit {
   data_completed?: ICard[] = [];
   get_data?: ICard[] = [];
   set_data?: ICard[] = [];
-  textArea_visible: boolean[] = [false, false, false];
-  textArea_visible2: boolean[] = [true, true, true];
+  textAreaVisible: boolean[] = [false, false, false];
+  textAreaVisible2: boolean[] = [true, true, true];
   valArea1 = '';
-  bucket_id = '633306e7fdfd11002c20c80d';
+  bucketId = '633306e7fdfd11002c20c80d';
   @ViewChild('bxbx') bxbx: ElementRef | any;
   constructor() {}
 
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   bucketPromise() {
-    return Bucket.data.getAll(this.bucket_id);
+    return Bucket.data.getAll(this.bucketId);
   }
 
   async updateData() {
@@ -64,9 +64,9 @@ export class HomeComponent implements OnInit {
     this.valArea1 = val;
   }
 
-  textAreaVisible(id: number) {
-    this.textArea_visible[id] = !this.textArea_visible[id];
-    this.textArea_visible2[id] = !this.textArea_visible2[id];
+  areaVisible(id: number) {
+    this.textAreaVisible[id] = !this.textAreaVisible[id];
+    this.textAreaVisible2[id] = !this.textAreaVisible2[id];
   }
 
   async dataInsert(bucketId: any, bucketData: any){
@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
   }
 
   async updateBucketData(dataId: any, globalData: any, statusName: string){
-    return Bucket.data.update(this.bucket_id, dataId, {
+    return Bucket.data.update(this.bucketId, dataId, {
       ...globalData,
       status: statusName
     });

@@ -17,14 +17,14 @@
       <div cdkDrag>&nbsp;</div>
     </div>
     <button
-      (click)="textAreaVisible(0)"
+      (click)="areaVisible(0)"
       class="button-settings"
       mat-flat-button
     >
       <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
     </button>
     <textarea
-      *ngIf="textArea_visible[0]"
+      *ngIf="textAreaVisible[0]"
       (keydown)="addBucket(0, 'input', $event, 'development', valArea1)"
       class="input-settings"
       rows="3"
@@ -35,7 +35,7 @@
       #bxbx
     ></textarea>
     <button
-      *ngIf="textArea_visible[0]"
+      *ngIf="textAreaVisible[0]"
       (click)="addBucket(0, 'button', '', 'development', valArea1)"
       class="save-button"
       mat-flat-button
@@ -43,8 +43,8 @@
       Kart Ekle
     </button>
     <button
-      *ngIf="textArea_visible[0]"
-      (click)="textAreaVisible(0)"
+      *ngIf="textAreaVisible[0]"
+      (click)="areaVisible(0)"
       class="close-button"
       mat-flat-button
     >
@@ -70,15 +70,15 @@
       <div cdkDrag>&nbsp;</div>
     </div>
     <button
-      *ngIf="textArea_visible2[1]"
-      (click)="textAreaVisible(1)"
+      *ngIf="textAreaVisible2[1]"
+      (click)="areaVisible(1)"
       class="button-settings"
       mat-flat-button
     >
       <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
     </button>
     <textarea
-      *ngIf="textArea_visible[1]"
+      *ngIf="textAreaVisible[1]"
       (keydown)="addBucket(1, 'input', $event, 'working', valArea1)"
       class="input-settings"
       rows="3"
@@ -89,7 +89,7 @@
       #bxbx
     ></textarea>
     <button
-      *ngIf="textArea_visible[1]"
+      *ngIf="textAreaVisible[1]"
       (click)="addBucket(1, 'button', '', 'working', valArea1)"
       class="save-button"
       mat-flat-button
@@ -97,8 +97,8 @@
       Kart Ekle
     </button>
     <button
-      *ngIf="textArea_visible[1]"
-      (click)="textAreaVisible(1)"
+      *ngIf="textAreaVisible[1]"
+      (click)="areaVisible(1)"
       class="close-button"
       mat-flat-button
     >
@@ -124,15 +124,15 @@
       <div cdkDrag>&nbsp;</div>
     </div>
     <button
-      *ngIf="textArea_visible2[2]"
-      (click)="textAreaVisible(2)"
+      *ngIf="textAreaVisible2[2]"
+      (click)="areaVisible(2)"
       class="button-settings"
       mat-flat-button
     >
       <mat-icon class="font-settings" fontIcon="add"></mat-icon>Kart Ekle
     </button>
     <textarea
-      *ngIf="textArea_visible[2]"
+      *ngIf="textAreaVisible[2]"
       (keydown)="addBucket(2, 'input', $event, 'completed', valArea1)"
       class="input-settings"
       rows="3"
@@ -143,7 +143,7 @@
       #bxbx
     ></textarea>
     <button
-      *ngIf="textArea_visible[2]"
+      *ngIf="textAreaVisible[2]"
       (click)="addBucket(2, 'button', '', 'completed', valArea1)"
       class="save-button"
       mat-flat-button
@@ -151,8 +151,8 @@
       Kart Ekle
     </button>
     <button
-      *ngIf="textArea_visible[2]"
-      (click)="textAreaVisible(2)"
+      *ngIf="textAreaVisible[2]"
+      (click)="areaVisible(2)"
       class="close-button"
       mat-flat-button
     >
