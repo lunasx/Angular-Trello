@@ -13,6 +13,6 @@ export class CardCompletedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() data_completed?: ICard;
+  @Input() dataCompleted?: ICard;
 }
  

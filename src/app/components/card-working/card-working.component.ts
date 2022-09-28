@@ -13,6 +13,6 @@ export class CardWorkingComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  @Input() data_working?: ICard;
+  @Input() dataWorking?: ICard;
 }
  
