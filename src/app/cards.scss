@@ -1,7 +1,10 @@
+$card-color: rgba(28, 28, 29, 0.753);
+$card-color-hover: rgba(255, 255, 255, 0.527);
+
 :host{
     .global-card{
-        background-color: #FFF;
-        color: rgba(28, 28, 29, 0.753);
+        background-color: white;
+        color: $card-color;
         margin-bottom: 10px;
         text-align: left;
         padding-top: 5px;
@@ -9,6 +12,6 @@
         transition: 0.2s;
     }
     .global-card:hover{
-        background-color: rgba(255, 255, 255, 0.527);
+        background-color: $card-color-hover;
     }
 } 
