@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   textAreaVisible2: boolean[] = [true, true, true];
   valArea1 = '';
   bucketId = '633306e7fdfd11002c20c80d';
-  @ViewChild('bxbx') bxbx: ElementRef | any;
+  @ViewChild('areaBox') areaBox: ElementRef | any;
   constructor() {}
 
   async ngOnInit() {
@@ -83,8 +83,8 @@ export class HomeComponent implements OnInit {
 
     if (firstRun == false) {
       if (!name.trim()) {
-        this.bxbx.nativeElement.value = this.bxbx.nativeElement.value.replace(
-          this.bxbx.nativeElement.value,
+        this.areaBox.nativeElement.value = this.areaBox.nativeElement.value.replace(
+          this.areaBox.nativeElement.value,
           ''
         );
         return;
@@ -109,8 +109,8 @@ export class HomeComponent implements OnInit {
       this.data?.push(obj);
       this.dataInsert('633306e7fdfd11002c20c80d', obj);
 
-      this.bxbx.nativeElement.value = this.bxbx.nativeElement.value.replace(
-        this.bxbx.nativeElement.value,
+      this.areaBox.nativeElement.value = this.areaBox.nativeElement.value.replace(
+        this.areaBox.nativeElement.value,
         ''
       );
     }
