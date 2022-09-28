@@ -9,8 +9,7 @@ import * as Bucket from '@spica-devkit/bucket';
 
 Bucket.initialize({
   publicUrl: 'https://intership-test-1ae96.hq.spicaengine.com/api',
-  apikey:
-    '15fjjr18l8lbwy1g',
+  apikey: '15fjjr18l8lbwy1g',
 });
 
 @Component({
@@ -36,7 +35,7 @@ export class HomeComponent implements OnInit {
     this.bucketPromise()
       .then((datas: any) => {
         this.data = datas;
-        console.log(this.data)
+        console.log(this.data);
         this.updateData();
       })
       .catch((error) => {
@@ -69,7 +68,7 @@ export class HomeComponent implements OnInit {
     this.textAreaVisible2[id] = !this.textAreaVisible2[id];
   }
 
-  async dataInsert(bucketId: any, bucketData: any){
+  async dataInsert(bucketId: any, bucketData: any) {
     return Bucket.data.insert(bucketId, bucketData);
   }
 
@@ -82,16 +81,17 @@ export class HomeComponent implements OnInit {
   ) {
     let firstRun: Boolean = true;
 
-    if(firstRun == false){
+    if (firstRun == false) {
       if (!name.trim()) {
-        this.bxbx.nativeElement.value = this.bxbx.nativeElement.value.replace(this.bxbx.nativeElement.value, "");
+        this.bxbx.nativeElement.value = this.bxbx.nativeElement.value.replace(
+          this.bxbx.nativeElement.value,
+          ''
+        );
         return;
       }
-   }
-   else
-   {
+    } else {
       firstRun = false;
-   }
+    }
 
     let statusObj: any = {
       0: 'for_development',
@@ -107,18 +107,21 @@ export class HomeComponent implements OnInit {
       };
 
       this.data?.push(obj);
-      this.dataInsert("633306e7fdfd11002c20c80d", obj)
+      this.dataInsert('633306e7fdfd11002c20c80d', obj);
 
-      this.bxbx.nativeElement.value = this.bxbx.nativeElement.value.replace(this.bxbx.nativeElement.value, "");
+      this.bxbx.nativeElement.value = this.bxbx.nativeElement.value.replace(
+        this.bxbx.nativeElement.value,
+        ''
+      );
     }
 
     this.updateData();
   }
 
-  async updateBucketData(dataId: any, globalData: any, statusName: string){
+  async updateBucketData(dataId: any, globalData: any, statusName: string) {
     return Bucket.data.update(this.bucketId, dataId, {
       ...globalData,
-      status: statusName
+      status: statusName,
     });
   }
 
@@ -143,15 +146,27 @@ export class HomeComponent implements OnInit {
       switch (event.container.id) {
         case 'cdk-drop-list-0':
           this.data[index].status = 'for_development';
-          this.updateBucketData(this.data[index]._id, this.data[index], "for_development")
+          this.updateBucketData(
+            this.data[index]._id,
+            this.data[index],
+            'for_development'
+          );
           break;
         case 'cdk-drop-list-1':
           this.data[index].status = 'for_working';
-          this.updateBucketData(this.data[index]._id, this.data[index], "for_working")
+          this.updateBucketData(
+            this.data[index]._id,
+            this.data[index],
+            'for_working'
+          );
           break;
         case 'cdk-drop-list-2':
           this.data[index].status = 'for_completed';
-          this.updateBucketData(this.data[index]._id, this.data[index], "for_completed")
+          this.updateBucketData(
+            this.data[index]._id,
+            this.data[index],
+            'for_completed'
+          );
           break;
       }
     }
